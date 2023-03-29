@@ -25,7 +25,7 @@ export default function Home() {
           <Experience />
           <Work />
           <Contant />
-          <Footer />
+          {/* <Footer /> */}
       </div>
     </>
   )
