@@ -49,8 +49,8 @@ const Contant = () => {
                         <span>Yangon, Myanmar</span>
                     </div>
                     <div className="links">
-                        <i><BsGithub /></i>
-                        <i><AiFillLinkedin /></i>
+                        <a href="https://github.com/myoaung1234"><i><BsGithub /></i></a>
+                        <a href="https://www.linkedin.com/in/myo-aung-2a374823b/"><i><AiFillLinkedin /></i></a>
                     </div>
                 </div>
             </div>
