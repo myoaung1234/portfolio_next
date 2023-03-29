@@ -3,12 +3,12 @@ import React from 'react';
 
 const Navbar = () => {
   const onDownload = () => {
-    fetch('cv.pdf').then(res => {
+    fetch('myoaung-cv.pdf').then(res => {
       res.blob().then(blob => {
         const fileURL = window.URL.createObjectURL(blob);
         let alink = document.createElement('a');
         alink.href = fileURL;
-        alink.download = 'cv.pdf';
+        alink.download = 'myoaung-cv.pdf';
         alink.click();
       })
     })
