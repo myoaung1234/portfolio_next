@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState} from 'react';
 import { BsFillTelephoneFill, BsGithub } from 'react-icons/bs';
 import { MdEmail, MdLocationOn } from 'react-icons/md';
 import { AiFillLinkedin } from 'react-icons/ai'
@@ -6,10 +6,12 @@ import emailjs from '@emailjs/browser';
 
 const Contant = () => {
     const ref = useRef();
+    const [loading, setLoading] = useState (false);
+    
 
     const handleSubmit = e => {
         e.preventDefault ();
-
+        setLoading (true);
         emailjs
         .sendForm (
             'service_gmm2fzk',
@@ -19,15 +21,17 @@ const Contant = () => {
         )
         .then (
             result => {
-            console.log (result.text);
+            console.log(result.text);
+            setLoading (false);
             },
             error => {
             console.log (error.text);
+            setLoading (false);
             }
         );
     };
 
-
+    console.log(loading)
 
   return (
     <div className='contact' id="contact">
@@ -64,7 +68,11 @@ const Contant = () => {
                 <div className="form-data">
                     <textarea rows="5" name='message' placeholder='Message'/>
                 </div>
-                <button type="submit">Send Email</button>
+                
+                <button type="submit" >
+                    {loading ? <span>Loading...</span> : <span style={{backgroundColor: 'transparent'}}>Send Email</span>}
+                </button>
+                
             </form>
         </div>
         
