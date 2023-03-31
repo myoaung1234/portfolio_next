@@ -1,12 +1,13 @@
 import React, { useRef, useState} from 'react';
 import { BsFillTelephoneFill, BsGithub } from 'react-icons/bs';
 import { MdEmail, MdLocationOn } from 'react-icons/md';
-import { AiFillLinkedin } from 'react-icons/ai'
+import { AiFillLinkedin, AiOutlineDoubleRight } from 'react-icons/ai'
 import emailjs from '@emailjs/browser';
 
 const Contant = () => {
     const ref = useRef();
-    const [loading, setLoading] = useState (false);
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
     
 
     const handleSubmit = e => {
@@ -22,7 +23,9 @@ const Contant = () => {
         .then (
             result => {
             console.log(result.text);
+            setSuccess(true);
             setLoading (false);
+            window.location.reload();
             },
             error => {
             console.log (error.text);
@@ -38,7 +41,7 @@ const Contant = () => {
         <h2>Contact Me</h2>
         <div className="contact-inner">
             <div className="left">
-                <p>Contact with Me__</p>
+                <p>Get In Touch</p>
                 <div className="items">
                     <div className="item">
                         <i><BsFillTelephoneFill /></i>
@@ -60,19 +63,19 @@ const Contant = () => {
             </div>
             <form  ref={ref} onSubmit={handleSubmit} >
                 <div className="form-data">
-                    <input type="text" name='name' placeholder='Your Name...' />
+                    <input type="text" name='name' placeholder='Your Name...' required/>
                 </div>
                 <div className="form-data">
-                    <input type="email" name='email' placeholder='Email Address...' />
+                    <input type="email" name='email' placeholder='Email Address...' pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required/>
                 </div>
                 <div className="form-data">
-                    <textarea rows="5" name='message' placeholder='Message'/>
+                    <textarea rows="5" name='message' placeholder='Message' required/>
                 </div>
                 
                 <button type="submit" >
                     {loading ? <span>Loading...</span> : <span style={{backgroundColor: 'transparent'}}>Send Email</span>}
                 </button>
-                
+                {success ? <span>Email has been sent successfully....</span> : "" }
             </form>
         </div>
         
