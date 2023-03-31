@@ -42,7 +42,7 @@ const Contant = () => {
                 <div className="items">
                     <div className="item">
                         <i><BsFillTelephoneFill /></i>
-                        <span>+959 940095846</span>
+                        <span>+959 976150063</span>
                     </div>
                     <div className="item">
                         <i><MdEmail /></i>

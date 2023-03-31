@@ -6,6 +6,7 @@ const Experience = () => {
     <div className='experience' id="experience">
         
         <div className="contant">
+          
             <div className="left">
               <h2>Experience</h2>
               <h3>Coding Elephant Technology</h3>

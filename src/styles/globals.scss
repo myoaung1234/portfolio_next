@@ -144,16 +144,21 @@ $lightGreen : #806491;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
+      flex-wrap: wrap;
       padding: 5px 20px;
       gap: 100px;
 
+      
+
       .left{
         flex: 2;
-        h2 {
-          font-size: 24px;
-          font-weight: 700;
+        h2{
+          font-size: 20px;
+          font-weight: 600;
           color: #fff;
+          width: 100%;
         }
+        
         h3{
           font-size: 16px;
           font-weight: 600;
